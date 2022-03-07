@@ -52,6 +52,10 @@ visit[x위치][y위치][들어온 방향] = 지금까지 설치한 거울의 개
 
 물론 초기 탐색을 위해 초기값을 최대값으로 설정하는 것도 잊지 말자.
 
+처음에는 struct안에 사용한 거울의 개수를 넣으려고 했는데 생각해 보니, 그렇게 되면 visit에 대한 설정도 따로 해줘야 해서 메리트가 없다고 생각된다.
+
+어차피 지금 위치에서 특정 방향으로 들어왔을때 사용한 거울의 최소값을 알아야 하기 때문이다.
+
 ## Where can I get more help, if I need it?
 
 You can contact me through email, which is wogur7496@gmail.com.
