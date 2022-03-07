@@ -1,1 +1,58 @@
 # Hard_2151_MirrorEmplacement
+
+made by Jaehyeok Choi
+
+## Welcome to Jaehyeok's github!
+
+## What is the problem?
+
+![image](https://github.com/Choi-JaeHyeok-21500749/Hard_2151_MirrorEmplacement/blob/main/2151_pro.PNG)
+
+## What Algorithm should I use?
+
+Graph Algorithm , implementation , bfs
+
+## What was the key point and the hard part?
+
+I think there is some more explaination in the problem.
+
+Because we know in commen sense that light goes straight , we knew that we we open the door , the mirror have to be infront of a person to reflect that person.
+
+Hoever , I thought there will be only one direction that satisfy that condition and I though walls must surround the room and there should be wall around the wall except for  the entrance.
+
+한글로 하자면 문 옆에 벽이 없을 수 도 있다. 즉 처음 초기 조건에서 그냥 문에 앞 방향만 search 하면 안되고 ,  상하 좌우 모두 찾아 봐야 한다. 즉 문이 방 중간에 있을 수 도 있고 문 옆에 벽이 없을 수도 있다. 또한 빛은 거울을 통과 할 수 도 있다.
+
+처음에 그렇게 4방향을 서치 해서 큐에 넣어준다. 이후 상식적으로 빛은 일직선으로 나가기 떄문에 나가는 방향을 기록해야 한다. 이게 struct st에 저장 되어 있다.
+
+다음 갈 수 있는 공간에 거울이 없으면 그냥 계속 왔던 방향대로 직진하면 되고 , 거울이 있으면.
+
+1. 왼쪽 으로 꺽는다 ( 빛의 입장에서)
+
+2. 오른쪽으로 꺾는다.
+
+3. 그대로 직진한다.
+
+라는 옵션이 있을 것이다.
+
+이렇게만 풀고 , 제출하면 메모리 초과가 뜰것이다.
+
+왜냐하면 방문 처리를 해주지 않았기 떄문이다.
+
+물론 빛이 다시 돌아와서 가는게 거기서 꺾어서 가는것보다 거울을 적게 쓸 수 있어서 그냥 visit[x][y] 해버리면 안된다.
+
+하지만 같은 방향으로 그 빛이 들어 왔다면, 굳이 다시 거울을 더 많이 써서 그 부분으로 왔을때 다시 탐색해 줄 이유가 없다.
+
+따라서 3차원 배열을 사용해서 visit을 체크해 준다.
+
+visit[x위치][y위치][들어온 방향] = 지금까지 설치한 거울의 개수.
+
+라고 보면 된다.
+
+따라서 다음 탐색할 장소의 visit값이 더 크면 (더 많은 거울을 사용해 그 장소에 왔으면 or 처음 왔으면) 그 부분을 탐색하는 것이다.
+
+물론 초기 탐색을 위해 초기값을 최대값으로 설정하는 것도 잊지 말자.
+
+## Where can I get more help, if I need it?
+
+You can contact me through email, which is wogur7496@gmail.com.
+Thank you for visiting this github!
